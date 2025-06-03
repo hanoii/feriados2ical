@@ -71,8 +71,8 @@ def scrape_from_website(year):
                     holiday_matches = re.findall(holiday_pattern, array_content)
 
                     for date_str, label, holiday_type in holiday_matches:
-                        # Skip "días no laborables" and tourist days as requested
-                        if holiday_type in ['no_laborable', 'turistico']:
+                        # Skip only "días no laborables" but include tourist holidays
+                        if holiday_type == 'no_laborable':
                             continue
 
                         # Parse date (format: "1/01/2025" or "03/03/2025")
